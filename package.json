@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "start:dev": "tsx watch src/index.ts",
-    "format": "prettier --write \"src/**/*.ts\" \"src/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\" \"src/*.ts\"",
+    "build": "tsup src"
   },
   "devDependencies": {
     "@types/node": "^22.1.0",
@@ -15,6 +16,7 @@
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4"
   }
