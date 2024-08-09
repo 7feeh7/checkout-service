@@ -2,7 +2,7 @@
 
 Este projeto é um microsserviço para gerenciar pedidos, incluindo a criação, atualização e status de pedidos. Ele foi construído utilizando Node.js, TypeScript, Sequelize, e PostgreSQL, seguindo os princípios do SOLID.
 
-Além disso, este serviço integra-se com um microsserviço de gateway de pagamento desenvolvido em Java. Quando um pedido é criado, o serviço de pagamento é chamado para processar a transação. Caso o pagamento falhe, o pedido é automaticamente cancelado.
+Além disso, este serviço integra-se com um microsserviço de gateway de pagamento desenvolvido em Java [`payment-gateway`](https://github.com/7feeh7/payment-gateway). Quando um pedido é criado, o serviço de pagamento é chamado para processar a transação. Caso o pagamento falhe, o pedido é automaticamente cancelado.
 
 ## Tecnologias
 
