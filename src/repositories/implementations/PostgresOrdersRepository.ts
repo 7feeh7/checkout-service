@@ -16,7 +16,16 @@ export class PostgresOrderRepository implements IOrderRepository {
     })
   }
 
-  async update(order: Order): Promise<void> {
-    await OrderModel.update(order, { where: { id: order.id } })
+  async update(order: Order): Promise<OrderModel | null> {
+    const [rowsAffected, updatedOrders] = await OrderModel.update(order, {
+      where: { id: order.id },
+      returning: true,
+    })
+
+    if (rowsAffected > 0) {
+      return updatedOrders[0]
+    } else {
+      return null
+    }
   }
 }

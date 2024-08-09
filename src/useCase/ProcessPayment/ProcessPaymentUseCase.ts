@@ -19,12 +19,12 @@ export class ProcessPaymentUseCase {
       )
 
       if (payment === "SUCCESS") {
-        this.updateOrderStatusUseCase.execute({
+        return this.updateOrderStatusUseCase.execute({
           id: data.orderId,
           status: "COMPLETED",
         })
       } else {
-        this.updateOrderStatusUseCase.execute({
+        return this.updateOrderStatusUseCase.execute({
           id: data.orderId,
           status: "FAILED",
         })

@@ -4,5 +4,5 @@ import { Order } from "../entities/Order"
 export interface IOrderRepository {
   save(order: Order): Promise<OrderModel>
   findById(id: string): Promise<OrderModel | null>
-  update(user: any): Promise<void>
+  update(order: any): Promise<OrderModel | null>
 }
