@@ -3,7 +3,7 @@ import { IOrderRepository } from "../../repositories/IOrderRepository"
 import { ICreateOrderRequestDTO } from "./CreateOrderDTO"
 
 export class CreateOrderUseCase {
-  constructor(private ordersRepository: IOrderRepository,) { }
+  constructor(private ordersRepository: IOrderRepository) {}
 
   async execute(data: ICreateOrderRequestDTO) {
     const order = new Order(data.items, "PENDING")

@@ -2,13 +2,21 @@ import { UpdateOrderStatusUseCase } from "../UpdateOrderStatus/UpdateOrderStatus
 import { ProcessPaymentUseCase } from "./ProcessPaymentUseCase"
 import { ProcessPaymentController } from "./ProcessPaymentController"
 import { AxiosHttpClient } from "../../services/AxiosHttpClient"
+import { PostgresOrderRepository } from "../../repositories/implementations/PostgresOrdersRepository"
 
 const httpClient = new AxiosHttpClient()
-const updateOrderStatusUseCase = new UpdateOrderStatusUseCase()
+
+const postgresOrderRepository = new PostgresOrderRepository()
+
+const updateOrderStatusUseCase = new UpdateOrderStatusUseCase(
+  postgresOrderRepository,
+)
+
 const processPaymentUseCase = new ProcessPaymentUseCase(
   httpClient,
   updateOrderStatusUseCase,
 )
+
 const processPaymentController = new ProcessPaymentController(
   processPaymentUseCase,
 )

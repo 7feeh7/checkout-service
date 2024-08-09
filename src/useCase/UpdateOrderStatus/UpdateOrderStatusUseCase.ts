@@ -1,16 +1,16 @@
-import { Order } from "../../entities/Order"
+import { IOrderRepository } from "../../repositories/IOrderRepository"
 import { UpdateOrderStatusDTO } from "./UpdateOrderStatusDTO"
 
-const orders: Order[] = []
-
 export class UpdateOrderStatusUseCase {
-  constructor() {}
+  constructor(private ordersRepository: IOrderRepository) {}
 
   async execute(data: UpdateOrderStatusDTO) {
-    const order = orders.find((order) => order.id === data.id)
-    if (order) {
-      order.status = data.status
+    const order = await this.ordersRepository.findById(data.id)
+
+    if (!order) {
+      throw new Error("Order not found.")
     }
-    return order
+
+    return await this.ordersRepository.update(data)
   }
 }

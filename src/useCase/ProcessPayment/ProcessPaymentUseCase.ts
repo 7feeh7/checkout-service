@@ -10,7 +10,7 @@ export class ProcessPaymentUseCase {
 
   async execute(data: IProcessPaymentRequestDTO) {
     try {
-      const payment = await this.httpClient.post<{ status: string }>(
+      const payment = await this.httpClient.post(
         `${process.env.API_PAYMENT_URL}/pay`,
         {
           orderId: data.orderId,
@@ -18,7 +18,7 @@ export class ProcessPaymentUseCase {
         },
       )
 
-      if (payment.status === "SUCCESS") {
+      if (payment === "SUCCESS") {
         this.updateOrderStatusUseCase.execute({
           id: data.orderId,
           status: "COMPLETED",

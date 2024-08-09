@@ -14,5 +14,5 @@ export const development: Options = {
     timestamps: true,
     underscored: true,
   },
-  logging: false
+  logging: false,
 }
