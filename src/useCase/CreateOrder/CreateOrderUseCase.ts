@@ -1,13 +1,12 @@
 import { Order } from "../../entities/Order"
+import { IOrderRepository } from "../../repositories/IOrderRepository"
 import { ICreateOrderRequestDTO } from "./CreateOrderDTO"
-import { v4 } from "uuid"
 
 export class CreateOrderUseCase {
-  constructor() {}
+  constructor(private ordersRepository: IOrderRepository,) { }
 
   async execute(data: ICreateOrderRequestDTO) {
-    const id = v4()
-    const newOrder = new Order(id, data.items, "PENDING")
-    return newOrder
+    const order = new Order(data.items, "PENDING")
+    return await this.ordersRepository.save(order)
   }
 }
