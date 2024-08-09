@@ -19,6 +19,12 @@ Além disso, este serviço integra-se com um microsserviço de gateway de pagame
 - [x] Processar pagamento
 - [x] Atualizar status do pedido
 
+## Próximos passos
+
+- [] Adicionar testes unitarios e de integração
+- [] Adicionar autenticação
+- [] Criar uma logica de retentativa de pagamento
+
 ## Pré-requisitos
 
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
